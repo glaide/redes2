@@ -6,50 +6,85 @@
 import socket
 import time
 
+#atualiza tabela cache
 def atualiza_tabela_cache():
-    #implementar verificacao do campo tempo
-    #implementar atualizar enviando requisição pros 3 servidores
-    #acho que vai ser uma boa a gente usar uma lista de lista
-    # lista [[saara,temperatura,validade],[patagonia,temperatura,validade]....]
+    global temperaturas
+    global saara
+    global msg_saara
+    global msg_r
+    new_time = time.time ()
+    if (new_time-temperaturas[0][2])>30:
+        print('temperatura do saara desatualizada, atualizando...\n')
+        saara.send(msg_r.encode())
+        msg_saara = saara.recv(1024)
+        print('nova temperatura para saara: ',msg_saara.decode())
+        temperaturas[0][1] = int(msg_saara.decode())
+        temperaturas[0][2] = time.time()
+    else:
+         print('temperatura saara esta atualizado: ',msg_saara.decode())   
 
-def atualiza_tabela_cache():
-    #dado uma tabela nova faz as requisições e completa a tabela
+#inicializa tabela cache
+def inicia_tabela_cache():
     
+    saara = ['SAARA',0,30]
+    patagonia = ['patagonia',0,30]
+    terceiro = ['terceiro',0,30]
+    lista_temp = list()
+    lista_temp.append(saara)
+    lista_temp.append(patagonia)
+    lista_temp.append(terceiro)
+    return lista_temp
+
+#organiza a mensagem para o cliente
+def monta_msg():
+    global temperaturas
+    msg = str(temperaturas[0][0])
+    msg = msg+': '+ str(temperaturas[0][1])
+
+    msg = msg+'\n'+ str(temperaturas[1][0])
+    msg = msg+': '+ str(temperaturas[1][1])
+
+    msg = msg+'\n'+ str(temperaturas[2][0])
+    msg = msg+': '+ str(temperaturas[1][1])+ '\n'
+
+    return msg
+###################Programa principal#############################
+
 HOST = 'localhost'
 PORTA = 5000
 msg_r= 'reflesh'
 msg_t= 'tempo'
 time_ini = time.time()
+temperaturas = inicia_tabela_cache()
 
 HOST_Saara = '127.0.0.1'     # Endereco IP do Servidor
 PORT_Saara = 5006           # Porta do servidor SAARA
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#################Conexao para o cliente #########################
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORTA))
 s.listen()
 
-#conecta ao servidor de temperaturas Saara
-s1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-dest = (HOST_Saara, PORT_Saara)
-s1.connect(dest)
+#################Conexao para o servidor Saara ##################
 
-print('Aguardando conexão com o cliente.../n')
+saara = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+dest = (HOST_Saara, PORT_Saara)
+saara.connect(dest)
+
+print('Aguardando conexão com o cliente...\n')
 while True:
     # conexão e endereco
     conn, cliente = s.accept()
-    print('Concetado por', cliente)
+    print('Conectado por', cliente)
 
     while True:
         msg_c = conn.recv(1024)
         if not msg_c: break
         if msg_c.decode() == msg_t:
-            #procuro o tempo
-            #verifico se esta valido
-            #se estiver valido envia
-            #se nao atualiza e depois envia
-            s1.send(msg_r.encode())
-            msg_saara = s1.recv(1024)
-            print(msg_saara.decode())
+            atualiza_tabela_cache()
+            msg_c = monta_msg()
+            conn.send(msg_c.encode())
+            print(temperaturas)
 
 print('Conexão realizada com', cliente)

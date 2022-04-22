@@ -10,9 +10,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 s.connect(dest)
 print('Para sair use CTRL+X\n')
-msg = input()
-while(msg != '\x18'):
-    #falta implementar o cliente receber a mesnagem do servidor
-    s.send(msg.encode())
-    msg = input()
+msg_input = input()
+while(msg_input != '\x18'):
+    s.send(msg_input.encode())
+    msg_s = s.recv(1024)
+    print('resposta do servidor >>>>\n',msg_s.decode(),'\n')
+    msg_input = input()
+
 s.close()

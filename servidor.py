@@ -6,12 +6,15 @@
 import socket
 import time
 
-def tabela_cache():
+def atualiza_tabela_cache():
     #implementar verificacao do campo tempo
     #implementar atualizar enviando requisição pros 3 servidores
     #acho que vai ser uma boa a gente usar uma lista de lista
     # lista [[saara,temperatura,validade],[patagonia,temperatura,validade]....]
 
+def atualiza_tabela_cache():
+    #dado uma tabela nova faz as requisições e completa a tabela
+    
 HOST = 'localhost'
 PORTA = 5000
 msg_r= 'reflesh'

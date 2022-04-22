@@ -3,6 +3,8 @@
 # Servidor TCP implementado com cache 
 # codigo fonte Servidor
 
+
+#depois que fizer funcionar com esse funciona com outros 2 servidores
 import socket
 import random
 
@@ -26,5 +28,6 @@ while True:
         if not msg: break
         if msg.decode() == msg_r:
             conn.send(str(Temp_ficticia).encode())
+            Temp_ficticia = random.randint(1,52)
 
 print('Conexão realizada com', cliente)

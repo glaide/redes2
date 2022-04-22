@@ -12,6 +12,7 @@ s.connect(dest)
 print('Para sair use CTRL+X\n')
 msg = input()
 while(msg != '\x18'):
+    #falta implementar o cliente receber a mesnagem do servidor
     s.send(msg.encode())
     msg = input()
 s.close()

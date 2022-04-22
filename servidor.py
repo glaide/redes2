@@ -21,7 +21,7 @@ def atualiza_tabela_cache():
         temperaturas[0][1] = int(msg_saara.decode())
         temperaturas[0][2] = time.time()
     else:
-         print('temperatura saara esta atualizado: ',msg_saara.decode())   
+         print('temperatura saara esta atualizado: ',msg_saara.decode(),'\n')   
 
 #inicializa tabela cache
 def inicia_tabela_cache():
@@ -79,6 +79,7 @@ while True:
     print('Conectado por', cliente)
 
     while True:
+        print('Aguardando requisição do cliente : \n')
         msg_c = conn.recv(1024)
         if not msg_c: break
         if msg_c.decode() == msg_t:

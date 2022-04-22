@@ -1,0 +1,6 @@
+        new_time = time.time ()
+        if(new_time-time_ini > int(15)):
+            s1.send(msg_r.encode())
+            msg_saara = s1.recv(1024)
+            print(msg_saara.decode())
+            time_ini = time.time ()

@@ -26,9 +26,9 @@ def atualiza_tabela_cache():
 #inicializa tabela cache
 def inicia_tabela_cache():
     
-    saara = ['SAARA',0,30]
-    patagonia = ['patagonia',0,30]
-    terceiro = ['terceiro',0,30]
+    saara = ['Saara',0,30]
+    patagonia = ['Patagonia',0,30]
+    terceiro = ['Terceiro',0,30]
     lista_temp = list()
     lista_temp.append(saara)
     lista_temp.append(patagonia)
@@ -87,4 +87,3 @@ while True:
             msg_c = monta_msg()
             conn.send(msg_c.encode())
 
-print('Conexão realizada com', cliente)

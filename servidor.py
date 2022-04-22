@@ -14,10 +14,10 @@ def atualiza_tabela_cache():
     new_time = time.time ()
 
     if (new_time-temperaturas[0][2])>30:
-        print('temperatura do saara desatualizada, atualizando...\n')
+        print('temperatura do saara desatualizada, atualizando...')
         saara.send(msg_r.encode())
         msg_saara = saara.recv(1024)
-        print('nova temperatura para saara: ',msg_saara.decode())
+        print('nova temperatura para saara: ',msg_saara.decode(),'\n')
         temperaturas[0][1] = int(msg_saara.decode())
         temperaturas[0][2] = time.time()
     else:
@@ -40,10 +40,10 @@ def monta_msg():
     msg = str(temperaturas[0][0])
     msg = msg+': '+ str(temperaturas[0][1])
 
-    msg = msg+'\n'+ str(temperaturas[1][0])
+    msg = msg+'\n '+ str(temperaturas[1][0])
     msg = msg+': '+ str(temperaturas[1][1])
 
-    msg = msg+'\n'+ str(temperaturas[2][0])
+    msg = msg+'\n '+ str(temperaturas[2][0])
     msg = msg+': '+ str(temperaturas[1][1])+ '\n'
 
     return msg

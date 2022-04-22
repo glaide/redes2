@@ -1,4 +1,4 @@
-arrumar os logs?
+arrumar os logs? X
 deixar codigo organizado
 replicar saara para outros 2 servidores
 colocar msg de erros e dar close nas conexaoes?

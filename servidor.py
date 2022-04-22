@@ -85,6 +85,5 @@ while True:
             atualiza_tabela_cache()
             msg_c = monta_msg()
             conn.send(msg_c.encode())
-            print(temperaturas)
 
 print('Conexão realizada com', cliente)

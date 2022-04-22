@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# Glaide Lara & ovidio j S Junior 
+# Servidor TCP implementado com cache 
+# codigo fonte Cliente
 import socket
 
 HOST = '127.0.0.1'     # Endereco IP do Servidor

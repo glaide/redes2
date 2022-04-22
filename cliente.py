@@ -11,12 +11,15 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST, PORT)
 s.connect(dest)
 
-print('Para encerrar digite sair\n')
+print('1-digite "sair" para encerrar\n')
+print('2-digite "tempo" para receber temperaturas\n')
 msg_input = input()
 while(msg_input != 'sair'):
     s.send(msg_input.encode())
     msg_s = s.recv(1024)
     print('resposta do servidor >>>>\n',msg_s.decode(),'\n')
+    print('1-digite "sair" para encerrar\n')
+    print('2-digite "tempo" para receber temperaturas\n')
     msg_input = input()
 
 s.close()

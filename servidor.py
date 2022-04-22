@@ -10,9 +10,9 @@ import time
 def atualiza_tabela_cache():
     global temperaturas
     global saara
-    global msg_saara
-    global msg_r
+    msg_r = 'reflesh'
     new_time = time.time ()
+
     if (new_time-temperaturas[0][2])>30:
         print('temperatura do saara desatualizada, atualizando...\n')
         saara.send(msg_r.encode())
@@ -21,11 +21,10 @@ def atualiza_tabela_cache():
         temperaturas[0][1] = int(msg_saara.decode())
         temperaturas[0][2] = time.time()
     else:
-         print('temperatura saara esta atualizado: ',msg_saara.decode(),'\n')   
+         print('temperatura saara esta atualizado: ',temperaturas[0][1],'\n')   
 
 #inicializa tabela cache
 def inicia_tabela_cache():
-    
     saara = ['Saara',0,30]
     patagonia = ['Patagonia',0,30]
     terceiro = ['Terceiro',0,30]
@@ -52,9 +51,7 @@ def monta_msg():
 
 HOST = 'localhost'
 PORTA = 5000
-msg_r= 'reflesh'
 msg_t= 'tempo'
-time_ini = time.time()
 temperaturas = inicia_tabela_cache()
 
 HOST_Saara = '127.0.0.1'     # Endereco IP do Servidor
@@ -74,8 +71,7 @@ saara.connect(dest)
 
 print('Aguardando conexão com o cliente...\n')
 while True:
-    # conexão e endereco
-    conn, cliente = s.accept()
+    conn, cliente = s.accept()  # conexão e endereco
     print('Conectado por', cliente)
 
     while True:

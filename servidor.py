@@ -15,31 +15,41 @@ def atualiza_tabela_cache():
 
     if (new_time-temperaturas['Saara'][1])>30:
         print('temperatura do saara desatualizada, atualizando...')
-        saara.send(msg_r.encode())
-        msg_saara = saara.recv(1024)
-        print('nova temperatura para saara: ',msg_saara.decode(),'\n')
-        temperaturas['Saara'][0] = int(msg_saara.decode())
-        temperaturas['Saara'][1] = time.time()
+        try:
+            saara.send(msg_r.encode())
+            msg_saara = saara.recv(1024)
+            print('nova temperatura para saara: ',msg_saara.decode(),'\n')
+            temperaturas['Saara'][0] = int(msg_saara.decode())
+            temperaturas['Saara'][1] = time.time()
+        except:
+            print('servidor saara pode ter desconectado','\n')
     else:
          print('temperatura saara esta atualizado: ',temperaturas['Saara'][0],'\n')
 
     if (new_time-temperaturas['Patagonia'][1])>30:
         print('temperatura do patagonia desatualizada, atualizando...')
-        patagonia.send(msg_r.encode())
-        msg_patagonia = patagonia.recv(1024)
-        print('nova temperatura para patagonia: ',msg_patagonia.decode(),'\n')
-        temperaturas['Patagonia'][0] = int(msg_patagonia.decode())
-        temperaturas['Patagonia'][1] = time.time()
+        try:
+            patagonia.send(msg_r.encode())
+            msg_patagonia = patagonia.recv(1024)
+            print('nova temperatura para patagonia: ',msg_patagonia.decode(),'\n')
+            temperaturas['Patagonia'][0] = int(msg_patagonia.decode())
+            temperaturas['Patagonia'][1] = time.time()
+        except:
+            print('servidor patagonia pode ter desconectado','\n')
+            
     else:
          print('temperatura patagonia esta atualizado: ',temperaturas['Patagonia'][0],'\n')   
          
     if (new_time-temperaturas['Antartida'][1])>30:
         print('temperatura do antartida desatualizada, atualizando...')
-        antartida.send(msg_r.encode())
-        msg_antartida = antartida.recv(1024)
-        print('nova temperatura para antartida: ',msg_antartida.decode(),'\n')
-        temperaturas['Antartida'][0] = int(msg_antartida.decode())
-        temperaturas['Antartida'][1] = time.time()
+        try:
+            antartida.send(msg_r.encode())
+            msg_antartida = antartida.recv(1024)
+            print('nova temperatura para antartida: ',msg_antartida.decode(),'\n')
+            temperaturas['Antartida'][0] = int(msg_antartida.decode())
+            temperaturas['Antartida'][1] = time.time()
+        except:
+            print('servidor antartida pode ter desconectado','\n') 
     else:
          print('temperatura antartida esta atualizado: ',temperaturas['Antartida'][0],'\n')
 
@@ -52,15 +62,22 @@ def inicia_tabela_cache():
 
 ############Organiza a mensagem para o cliente#####################
 def monta_msg():
+    new_time = time.time ()
     global temperaturas
     msg = 'Saara '
     msg = msg+': '+ str(temperaturas['Saara'][0])
+    if (new_time-temperaturas['Saara'][1])>30:
+        msg = msg+' (desatualizado)'
 
     msg = msg+'\n '+ 'Patagonia '
     msg = msg+': '+ str(temperaturas['Patagonia'][0])
+    if (new_time-temperaturas['Patagonia'][1])>30:
+        msg = msg+' (desatualizado)'
 
     msg = msg+'\n '+ 'Antartida '
-    msg = msg+': '+ str(temperaturas['Antartida'][0])+ '\n'
+    msg = msg+': '+ str(temperaturas['Antartida'][0])
+    if (new_time-temperaturas['Antartida'][1])>30:
+       msg = msg+' (desatualizado)'
 
     return msg
 
@@ -90,19 +107,27 @@ s.listen()
 
 saara = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST_saara, PORT_saara)
-saara.connect(dest)
-
+try:
+    saara.connect(dest)
+except:
+    print("Conexao com servidor Saara falhou")
 #################Conexao para o servidor Antartida ##################
 
 patagonia = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST_patagonia, PORT_patagonia)
-patagonia.connect(dest)
-
+try:
+    patagonia.connect(dest)
+except:
+    print("Conexao com servidor Patagonia falhou")
 #################Conexao para o servidor Patagonia ##################
 
 antartida = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 dest = (HOST_antartida, PORT_antartida)
-antartida.connect(dest)
+
+try:
+    antartida.connect(dest)
+except:
+    print("Conexao com servidor Antartida falhou")
 
 ###################Programa principal#############################
 

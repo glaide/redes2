@@ -1,3 +1,19 @@
 deixar codigo organizado
 fazer o relatorio e os negocios que sao exigidos
 usar clima real?
+Relatorio:
+-Falar que usamos dicionario pois o mesmo utiliza hash
+-imprimir logs dos casos de uso que sao:
+    - e se um dos servidores nao conseguir conectar
+    - e se algum deles cair
+    - e se o cliente tentar enviar um comando inexistente
+    - e se estiver com os dados desatualizados na tabela
+    - e se nao estiver com os dados desatualizados na tabela
+    - e se o cleinte cair e depois reconectar
+    - algum mais que vc imagina?
+acho que da pra fazer um diagrama do fluxo do programa:
+    - cliente manda mensagem requisitando tempo
+    - servidor cache verifica se a infromação esta no banco
+    - se tiver envia a informação sem fazer requicição
+    - se nao faz requisição de atualizar
+    - se falhar ao fazer nova requisição envia o dado pro cliente avisando que o dado esta desatualizado

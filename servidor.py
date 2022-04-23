@@ -120,6 +120,7 @@ try:
     patagonia.connect(dest)
 except:
     print("Conexao com servidor Patagonia falhou")
+    
 #################Conexao para o servidor Patagonia ##################
 
 antartida = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

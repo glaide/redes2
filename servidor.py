@@ -21,20 +21,42 @@ def atualiza_tabela_cache():
         temperaturas[0][1] = int(msg_saara.decode())
         temperaturas[0][2] = time.time()
     else:
-         print('temperatura saara esta atualizado: ',temperaturas[0][1],'\n')   
+         print('temperatura saara esta atualizado: ',temperaturas[0][1],'\n')
 
-#inicializa tabela cache
+    if (new_time-temperaturas[2][2])>30:
+        print('temperatura do patagonia desatualizada, atualizando...')
+        patagonia.send(msg_r.encode())
+        msg_patagonia = patagonia.recv(1024)
+        print('nova temperatura para patagonia: ',msg_patagonia.decode(),'\n')
+        temperaturas[2][1] = int(msg_patagonia.decode())
+        temperaturas[2][2] = time.time()
+    else:
+         print('temperatura patagonia esta atualizado: ',temperaturas[2][1],'\n')   
+         
+    if (new_time-temperaturas[1][2])>30:
+        print('temperatura do antartida desatualizada, atualizando...')
+        antartida.send(msg_r.encode())
+        msg_antartida = antartida.recv(1024)
+        print('nova temperatura para antartida: ',msg_antartida.decode(),'\n')
+        temperaturas[1][1] = int(msg_antartida.decode())
+        temperaturas[1][2] = time.time()
+    else:
+         print('temperatura antartida esta atualizado: ',temperaturas[1][1],'\n')
+
+
+##############Inicializa tabela cache##############################
+
 def inicia_tabela_cache():
     saara = ['Saara',0,30]
     patagonia = ['Patagonia',0,30]
-    terceiro = ['Terceiro',0,30]
+    antartida = ['Antartida',0,30]
     lista_temp = list()
     lista_temp.append(saara)
     lista_temp.append(patagonia)
-    lista_temp.append(terceiro)
+    lista_temp.append(antartida)
     return lista_temp
 
-#organiza a mensagem para o cliente
+############Organiza a mensagem para o cliente#####################
 def monta_msg():
     global temperaturas
     msg = str(temperaturas[0][0])
@@ -44,18 +66,25 @@ def monta_msg():
     msg = msg+': '+ str(temperaturas[1][1])
 
     msg = msg+'\n '+ str(temperaturas[2][0])
-    msg = msg+': '+ str(temperaturas[1][1])+ '\n'
+    msg = msg+': '+ str(temperaturas[2][1])+ '\n'
 
     return msg
-###################Programa principal#############################
+
+###################Definições do Servidor ########################
 
 HOST = 'localhost'
 PORTA = 5000
 msg_t= 'tempo'
 temperaturas = inicia_tabela_cache()
 
-HOST_Saara = '127.0.0.1'     # Endereco IP do Servidor
-PORT_Saara = 5006           # Porta do servidor SAARA
+HOST_saara = '127.0.0.1'     # Endereco IP do Servidor
+PORT_saara = 5001          # Porta do servidor SAARA
+
+HOST_antartida = '127.0.0.1'     # Endereco IP do Servidor
+PORT_antartida = 5002           # Porta do servidor SAARA
+
+HOST_patagonia = '127.0.0.1'     # Endereco IP do Servidor
+PORT_patagonia = 5003           # Porta do servidor SAARA
 
 #################Conexao para o cliente #########################
 
@@ -66,8 +95,22 @@ s.listen()
 #################Conexao para o servidor Saara ##################
 
 saara = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-dest = (HOST_Saara, PORT_Saara)
+dest = (HOST_saara, PORT_saara)
 saara.connect(dest)
+
+#################Conexao para o servidor Antartida ##################
+
+patagonia = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+dest = (HOST_patagonia, PORT_patagonia)
+patagonia.connect(dest)
+
+#################Conexao para o servidor Patagonia ##################
+
+antartida = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+dest = (HOST_antartida, PORT_antartida)
+antartida.connect(dest)
+
+###################Programa principal#############################
 
 print('Aguardando conexão com o cliente...\n')
 while True:

@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # Glaide Lara & ovidio j S Junior 
 # Servidor TCP implementado com cache 
-# codigo fonte Servidor Saara
+# codigo fonte Servidor Antartida
 
 import socket
 import random
 
 HOST = 'localhost'
-PORTA = 5001
+PORTA = 5002
 msg_r= 'reflesh'
 
-Temp_ficticia = random.randint(-10,44)
+Temp_ficticia = random.randint(-20,10)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORTA))

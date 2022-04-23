@@ -111,6 +111,7 @@ try:
     saara.connect(dest)
 except:
     print("Conexao com servidor Saara falhou")
+    
 #################Conexao para o servidor Antartida ##################
 
 patagonia = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

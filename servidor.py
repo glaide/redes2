@@ -13,60 +13,54 @@ def atualiza_tabela_cache():
     msg_r = 'reflesh'
     new_time = time.time ()
 
-    if (new_time-temperaturas[0][2])>30:
+    if (new_time-temperaturas['Saara'][1])>30:
         print('temperatura do saara desatualizada, atualizando...')
         saara.send(msg_r.encode())
         msg_saara = saara.recv(1024)
         print('nova temperatura para saara: ',msg_saara.decode(),'\n')
-        temperaturas[0][1] = int(msg_saara.decode())
-        temperaturas[0][2] = time.time()
+        temperaturas['Saara'][0] = int(msg_saara.decode())
+        temperaturas['Saara'][1] = time.time()
     else:
-         print('temperatura saara esta atualizado: ',temperaturas[0][1],'\n')
+         print('temperatura saara esta atualizado: ',temperaturas['Saara'][0],'\n')
 
-    if (new_time-temperaturas[2][2])>30:
+    if (new_time-temperaturas['Patagonia'][1])>30:
         print('temperatura do patagonia desatualizada, atualizando...')
         patagonia.send(msg_r.encode())
         msg_patagonia = patagonia.recv(1024)
         print('nova temperatura para patagonia: ',msg_patagonia.decode(),'\n')
-        temperaturas[2][1] = int(msg_patagonia.decode())
-        temperaturas[2][2] = time.time()
+        temperaturas['Patagonia'][0] = int(msg_patagonia.decode())
+        temperaturas['Patagonia'][1] = time.time()
     else:
-         print('temperatura patagonia esta atualizado: ',temperaturas[2][1],'\n')   
+         print('temperatura patagonia esta atualizado: ',temperaturas['Patagonia'][0],'\n')   
          
-    if (new_time-temperaturas[1][2])>30:
+    if (new_time-temperaturas['Antartida'][1])>30:
         print('temperatura do antartida desatualizada, atualizando...')
         antartida.send(msg_r.encode())
         msg_antartida = antartida.recv(1024)
         print('nova temperatura para antartida: ',msg_antartida.decode(),'\n')
-        temperaturas[1][1] = int(msg_antartida.decode())
-        temperaturas[1][2] = time.time()
+        temperaturas['Antartida'][0] = int(msg_antartida.decode())
+        temperaturas['Antartida'][1] = time.time()
     else:
-         print('temperatura antartida esta atualizado: ',temperaturas[1][1],'\n')
+         print('temperatura antartida esta atualizado: ',temperaturas['Antartida'][0],'\n')
 
 
 ##############Inicializa tabela cache##############################
 
 def inicia_tabela_cache():
-    saara = ['Saara',0,30]
-    patagonia = ['Patagonia',0,30]
-    antartida = ['Antartida',0,30]
-    lista_temp = list()
-    lista_temp.append(saara)
-    lista_temp.append(patagonia)
-    lista_temp.append(antartida)
-    return lista_temp
+    temperaturas = {'Saara': [0,30], 'Patagonia': [0,30], 'Antartida': [0,30]}
+    return temperaturas
 
 ############Organiza a mensagem para o cliente#####################
 def monta_msg():
     global temperaturas
-    msg = str(temperaturas[0][0])
-    msg = msg+': '+ str(temperaturas[0][1])
+    msg = 'Saara '
+    msg = msg+': '+ str(temperaturas['Saara'][0])
 
-    msg = msg+'\n '+ str(temperaturas[1][0])
-    msg = msg+': '+ str(temperaturas[1][1])
+    msg = msg+'\n '+ 'Patagonia '
+    msg = msg+': '+ str(temperaturas['Patagonia'][0])
 
-    msg = msg+'\n '+ str(temperaturas[2][0])
-    msg = msg+': '+ str(temperaturas[2][1])+ '\n'
+    msg = msg+'\n '+ 'Antartida '
+    msg = msg+': '+ str(temperaturas['Antartida'][0])+ '\n'
 
     return msg
 
@@ -124,5 +118,8 @@ while True:
         if msg_c.decode() == msg_t:
             atualiza_tabela_cache()
             msg_c = monta_msg()
+            conn.send(msg_c.encode())
+        else:
+            msg_c = 'tente outro comando'
             conn.send(msg_c.encode())
 

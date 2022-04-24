@@ -92,10 +92,10 @@ HOST_saara = '127.0.0.1'     # Endereco IP do Servidor
 PORT_saara = 5001          # Porta do servidor SAARA
 
 HOST_antartida = '127.0.0.1'     # Endereco IP do Servidor
-PORT_antartida = 5002           # Porta do servidor SAARA
+PORT_antartida = 5002           # Porta do servidor ANTARTIDA
 
 HOST_patagonia = '127.0.0.1'     # Endereco IP do Servidor
-PORT_patagonia = 5003           # Porta do servidor SAARA
+PORT_patagonia = 5003           # Porta do servidor PATAGONIA
 
 #################Conexao para o cliente #########################
 

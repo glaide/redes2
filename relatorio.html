@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Trabalho de Redes 2</h1>
+    <h2>Alunos:<br /> Glaide de Lara Oliveira <br /> Ovidio José da Silva Junior </h2>
+    <h2>Relatório do trabalho</h2>
+    <h3>1.1 - Conexão com o servidor</h3>
+    <p>
+        Este trabalho consiste em implementar um protocolo de comunicação entre dois dispositivos, um servidor e um
+        cliente,
+        utilizando um endereço IPv4 e uma <br /> interface de STREAM (TCP/IP), que possui uma conexão confiavel, e
+        permite a comunicação entre dois sockets (que é o requisito deste trabalho).
+    <h4>
+        Arquivos do trabalho: Antartida.py, Patagonia.py, Saara.py, Cliente.py, Servidor.py.
+    </h4>
+
+    </p>
+    <h3>1.2 - Servidores de temperatura</h3>
+    <p>
+        Nesta comunicação há 3 <b>servidores de temperatura</b>: Antartida, Patagonia e Saara. <br />
+        Cada servidor de temperatura envia o valor atual da temperatura para quem está solicitando, e logo após
+        gera-se
+        um novo valor para a temperatura local.
+        <p />
+    <p> As tarefas dos servidores de temperatura são: aguardar uma solicitação, aceitar a conexão com quem está
+        fazendo
+        <br />
+        a requisição, responder com a temperatura do local e gerar uma nova temperatura.
+    </p>
+
+    <h3>1.3 - Funcionamento do servidor</h3>
+    <p>
+        O servidor deve ser iniciado com o comando: <br />
+        <b>python3 Servidor.py</b>
+        <br />
+        <br />
+        O servidor deve ser iniciado em um terminal separado.<br />
+        O endereço IP do servidor é o 'localhost' e a PORTA é a porta 5000.
+    </p>
+    <h3>1.3.1 - Configurações dos servidores de temperatura</h3>
+    <p>
+        Os endereços IP dos servidores são:<br /> <br />
+        HOST_saara = '127.0.0.1' <br /> <br />
+        HOST_antartida = '127.0.0.1'<br /> <br />
+        HOST_patagonia = '127.0.0.1'<br /> <br />
+        As portas dos servidores são:<br /> <br />
+        PORT_saara = 5001 <br /> <br />
+        PORT_antartida = 5002 <br /> <br />
+        PORT_patagonia = 5003 <br /><br />
+    </p>
+
+</body>
+
+</html>

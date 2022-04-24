@@ -9,7 +9,7 @@ import random
 HOST = 'localhost'
 PORTA = 5002
 msg_r= 'reflesh'
-
+#busca um número aleatório de -20 a 10
 Temp_ficticia = random.randint(-20,10)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -17,8 +17,8 @@ s.bind((HOST, PORTA))
 s.listen()
 
 print('Aguardando conexão com o cliente.../n')
-# conexão e endereco
 while True:
+# conexão e endereco
     con, cliente = s.accept()
     print('Conectado por', cliente)
     while True:
@@ -27,4 +27,4 @@ while True:
         if not msg: break
         if msg.decode() == msg_r:
             con.send(str(Temp_ficticia).encode())
-            Temp_ficticia = random.randint(1,52)
+            Temp_ficticia = random.randint(-20,10)

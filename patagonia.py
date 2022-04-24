@@ -27,4 +27,4 @@ while True:
         if not msg: break
         if msg.decode() == msg_r:
             con.send(str(Temp_ficticia).encode())
-            Temp_ficticia = random.randint(1,52)
+            Temp_ficticia = random.randint(-20,10)

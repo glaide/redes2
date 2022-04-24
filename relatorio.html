@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<TITLE>Relatório Trabalho Prático - Redes 2</TITLE>
 
 <body>
     <h1>Trabalho de Redes 2</h1>
     <h2>Alunos:<br /> Glaide de Lara Oliveira <br /> Ovidio José da Silva Junior </h2>
     <h2>Relatório do trabalho</h2>
-    <h3>1.1 - Conexão com o servidor</h3>
+    <h3>Conexão com o servidor</h3>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;Este trabalho consiste em implementar um protocolo de comunicação entre dois
         dispositivos, um servidor e um cliente,
         utilizando um endereço IPv4 e uma <br />
         &nbsp;&nbsp;&nbsp;&nbsp;interface de STREAM (TCP/IP), que possui uma
         conexão confiavel, e
-        permite a comunicação entre dois sockets (que é o requisito deste trabalho).
-    <h4>
-        &nbsp;&nbsp;&nbsp;&nbsp;Arquivos do trabalho: Antartida.py, Patagonia.py, Saara.py, Cliente.py, Servidor.py.
-    </h4>
+        permite a comunicação entre dois sockets (que é o requisito deste trabalho).<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;Na implementação desse trabalho é feita com o uso de dicionarios em python, pois o mesmo
+        utiliza hash para busca de dados na tabela.
+        <br /><br />
+
+        &nbsp;&nbsp;&nbsp;&nbsp;Código fonte: <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="cliente.py.txt">Cliente</a>
+        <a href="servidor.py.txt">Servidor cache</a>
+        <a href="patagonia.py.txt">Servidor Patagonia</a>
+        <a href="saara.py.txt">Servidor Saara</a>
+        <a href="antartida.py.txt">Servidor Antartida</a>
+
+        <!-- TODO: DESCOMENTAR -->
+        <!-- 
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="redes2/cliente.py.txt">Cliente</a>
+        <a href="redes2/servidor.py.txt">Servidor cache</a>
+        <a href="redes2/patagonia.py.txt">Servidor Patagonia</a>
+        <a href="redes2/saara.py.txt">Servidor Saara</a>
+        <a href="redes2/antartida.py.txt">Servidor Antartida</a> -->
 
     </p>
-    <h3>1.2 - Servidores de temperatura</h3>
+    <h3>Servidores de temperatura</h3>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;Nesta comunicação há 3 <b>servidores de temperatura</b>: Antartida, Patagonia e Saara.
         <br />
@@ -34,16 +51,16 @@
         &nbsp;&nbsp;&nbsp;&nbsp;a requisição, responder com a temperatura do local e gerar uma nova temperatura.
     </p>
 
-    <h3>1.3 - Funcionamento do servidor</h3>
+    <h3>Funcionamento do servidor</h3>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;O servidor deve ser iniciado com o comando: <br />
-        <b>python3 Servidor.py</b>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>python3 Servidor.py</b>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;O servidor deve ser iniciado em um terminal separado.<br />
         &nbsp;&nbsp;&nbsp;&nbsp;O endereço IP do servidor é o 'localhost' e a PORTA é a porta 5000.
     </p>
-    <h3>1.3.1 - Configurações dos servidores de temperatura</h3>
+    <h3>Configurações dos servidores de temperatura</h3>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;Os endereços IP dos servidores são:<br /> <br />
         &nbsp;&nbsp;&nbsp;&nbsp;HOST_saara = '127.0.0.1' <br /> <br />
@@ -54,6 +71,43 @@
         &nbsp;&nbsp;&nbsp;&nbsp;PORT_antartida = 5002 <br /> <br />
         &nbsp;&nbsp;&nbsp;&nbsp;PORT_patagonia = 5003 <br /><br />
     </p>
+    <h3>
+        Funcionamento principal do servidor
+    </h3>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;O servidor permanece aguardando a requisição do cliente, e ao receber a requisição, ele
+        aceita a conexão. <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;Após aceitar a conexão e receber a mensagem, o servidor faz uma verificação para saber
+        se o tipo da mensgem está
+        certo, <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;caso esteja, ele atualiza a tabela cache, monta a mensagem a ser enviada e faz seu
+        envio. <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;Caso o tipo da mensagem seja errada, o servidor envia a seguinte mensagem 'tente outro
+        comando'. <br />
+
+    </p>
+
+    <h3>
+        Inicialização da tabela cache
+    </h3>
+
+    <h3>
+        Atualização da tabela cache
+    </h3>
+
+    <h3>
+        Montagem da mensagem
+    </h3>
+
+    <p>
+
+    </p>
+    <h3>Diagrama do fluxo de requisição</h3>
+    <!-- TODO: DESCOMENTAR -->
+    <!-- <img src="redes2/fluxo.jpg" alt="Fluxo requisição"> -->
+    <img src="fluxo.jpg" alt="Fluxo requisição">
+
 
 </body>
 

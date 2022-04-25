@@ -57,6 +57,9 @@ def atualiza_tabela_cache():
 ##############Inicializa tabela cache##############################
 
 def inicia_tabela_cache():
+    # indice 0 = temperatura inicial 
+    # indice 1 = tempo de atualizacao
+    
     temperaturas = {'Saara': [0,30], 'Patagonia': [0,30], 'Antartida': [0,30]}
     return temperaturas
 

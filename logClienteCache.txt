@@ -4,9 +4,9 @@
 
 tempo
 resposta do servidor >>>>
- Saara : 32
- Patagonia : 9
- Antartida : -3 
+ Saara : 44
+ Patagonia : -9
+ Antartida : -10 
 
 1-digite "sair" para encerrar
 
@@ -14,19 +14,9 @@ resposta do servidor >>>>
 
 tempo
 resposta do servidor >>>>
- Saara : 32
- Patagonia : 9
- Antartida : -3 
-
-1-digite "sair" para encerrar
-
-2-digite "tempo" para receber temperaturas
-
-tempo
-resposta do servidor >>>>
- Saara : -20
- Patagonia : 5
- Antartida : 8 
+ Saara : 44
+ Patagonia : -9
+ Antartida : -10 
 
 1-digite "sair" para encerrar
 

@@ -1,0 +1,28 @@
+Aguardando conexão com o cliente...
+
+Conectado por ('127.0.0.1', 49743)
+Aguardando requisição do cliente : 
+
+A temperatura do Saara está desatualizada no momento, estamos buscando novos dados...
+
+Temperatura atual do Saara:  44 
+
+A temperatura da Patagonia está desatualizada no momento, estamos buscando novos dados...
+
+Temperatura atual da Patagonia:  -9 
+
+A temperatura da Antartida está desatualizada no momento, estamos buscando novos dados...
+
+nova temperatura para antartida:  -10 
+
+Aguardando requisição do cliente : 
+
+A temperatura do Saara foi atualizada:  44 
+
+-----------------------------------------------------
+A temperatura da patagonia foi atualizada:  -9 
+
+-----------------------------------------------------
+A temperatura Antartida foi atualizado:  -10 
+
+Aguardando requisição do cliente : 

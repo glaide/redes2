@@ -14,34 +14,41 @@ def atualiza_tabela_cache():
     new_time = time.time ()
 
     if (new_time-temperaturas['Saara'][1])>30:
-        print('temperatura do saara desatualizada, atualizando...')
+        print('A temperatura do Saara está desatualizada no momento, estamos buscando novos dados...\n')
         try:
             saara.send(msg_r.encode())
             msg_saara = saara.recv(1024)
-            print('nova temperatura para saara: ',msg_saara.decode(),'\n')
+            print('Temperatura atual do Saara: ',msg_saara.decode(),'\n')
             temperaturas['Saara'][0] = int(msg_saara.decode())
             temperaturas['Saara'][1] = time.time()
         except:
-            print('servidor saara pode ter desconectado','\n')
+            print('Houve um erro na tentativa de conexão com servidor  \nde temperatura do Saara, este servidor pode ter desconectado\n')
+            print('-----------------------------------------------------')
     else:
-         print('temperatura saara esta atualizado: ',temperaturas['Saara'][0],'\n')
+        print('A temperatura do Saara foi atualizada: ',temperaturas['Saara'][0],'\n')
+        print('-----------------------------------------------------')
+
 
     if (new_time-temperaturas['Patagonia'][1])>30:
-        print('temperatura do patagonia desatualizada, atualizando...')
+        print('A temperatura da Patagonia está desatualizada no momento, estamos buscando novos dados...\n')
         try:
             patagonia.send(msg_r.encode())
             msg_patagonia = patagonia.recv(1024)
-            print('nova temperatura para patagonia: ',msg_patagonia.decode(),'\n')
+            print('Temperatura atual da Patagonia: ',msg_patagonia.decode(),'\n')
             temperaturas['Patagonia'][0] = int(msg_patagonia.decode())
             temperaturas['Patagonia'][1] = time.time()
         except:
-            print('servidor patagonia pode ter desconectado','\n')
+            print('Houve um erro na tentativa de conexão com servidor  \nde temperatura do Saara, este servidor pode ter desconectado\n')
+            print('-----------------------------------------------------')
+
             
     else:
-         print('temperatura patagonia esta atualizado: ',temperaturas['Patagonia'][0],'\n')   
+        print('A temperatura da patagonia foi atualizada: ',temperaturas['Patagonia'][0],'\n')   
+        print('-----------------------------------------------------')
+
          
     if (new_time-temperaturas['Antartida'][1])>30:
-        print('temperatura do antartida desatualizada, atualizando...')
+        print('A temperatura da Antartida está desatualizada no momento, estamos buscando novos dados...\n')
         try:
             antartida.send(msg_r.encode())
             msg_antartida = antartida.recv(1024)
@@ -49,9 +56,11 @@ def atualiza_tabela_cache():
             temperaturas['Antartida'][0] = int(msg_antartida.decode())
             temperaturas['Antartida'][1] = time.time()
         except:
-            print('servidor antartida pode ter desconectado','\n') 
+            print('Houve um erro na tentativa de conexão com servidor  \nde temperatura do Saara, este servidor pode ter desconectado\n') 
+            print('-----------------------------------------------------')
+
     else:
-         print('temperatura antartida esta atualizado: ',temperaturas['Antartida'][0],'\n')
+         print('A temperatura Antartida foi atualizado: ',temperaturas['Antartida'][0],'\n')
 
 
 ##############Inicializa tabela cache##############################

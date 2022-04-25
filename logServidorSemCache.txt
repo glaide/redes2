@@ -1,0 +1,15 @@
+Aguardando requisição do cliente : 
+
+A temperatura do Saara está desatualizada no momento, estamos buscando novos dados...
+
+Temperatura atual do Saara:  8 
+
+A temperatura da Patagonia está desatualizada no momento, estamos buscando novos dados...
+
+Temperatura atual da Patagonia:  9 
+
+A temperatura da Antartida está desatualizada no momento, estamos buscando novos dados...
+
+nova temperatura para antartida:  2 
+
+Aguardando requisição do cliente : 

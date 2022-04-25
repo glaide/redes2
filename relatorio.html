@@ -1,143 +1,159 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<meta charset="UTF-8">
-<TITLE>Relatório Trabalho Prático - Redes 2</TITLE>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Relatório Trabalho Prático - Redes 2</title>
+
+</head>
 
 <body>
-    <h1>Trabalho de Redes 2</h1>
-    <h2>Alunos:<br /> Glaide de Lara Oliveira <br /> Ovidio José da Silva Junior </h2>
-    <h2>Relatório do trabalho</h2>
-    <h3>Conexão com o servidor</h3>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;Este trabalho consiste em implementar um protocolo de comunicação entre dois
-        dispositivos, um servidor e um cliente,
-        utilizando um endereço IPv4 e uma <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;interface de STREAM (TCP/IP), que possui uma
-        conexão confiavel, e
-        permite a comunicação entre dois sockets (que é o requisito deste trabalho).<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Na implementação desse trabalho é feita com o uso de dicionarios em python, pois o mesmo
-        utiliza hash para busca de dados na tabela.
-        <br /><br />
+    <article id="b6820214-63b1-495b-a7c3-6a24a8726d28" class="page sans">
+        <header>
+            <h1 class="page-title">Relatório Trabalho Prático - Redes 2</h1>
+        </header>
+        <div class="page-body">
+            <p id="a90dfc03-7249-404f-90ff-e3070ea83397" class="">
+            </p>
+            <table id="85c2d2b3-d3c6-4fde-9a25-1f7666f1b434" class="simple-table">
+                <tbody>
+                    <tr id="efd745fb-d6eb-4cef-a096-ba885377237b">
+                        <td id="M|x=" class="" style="width:381px">Alunos</td>
+                        <td id="S~yr" class="" style="width:281px">GRR</td>
+                    </tr>
+                    <tr id="9258fde8-bc91-47fc-bf53-48682fc085ba">
+                        <td id="M|x=" class="" style="width:381px">Glaide de Lara Oliveira</td>
+                        <td id="S~yr" class="" style="width:281px">20184567</td>
+                    </tr>
+                    <tr id="6b922477-790d-4edd-91ad-96f6cd7d6a16">
+                        <td id="M|x=" class="" style="width:381px">Ovidio José da Silva Junior</td>
+                        <td id="S~yr" class="" style="width:281px">20182667</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2><strong>Conexão com o servidor</strong></h2>
+            <p>Este trabalho consiste em implementar um protocolo de comunicação entre dois dispositivos, um servidor e
+                um cliente, utilizando um endereço IPv4 e uma interface de <em>STREAM (TCP/IP)</em>, que possui uma
+                conexão confiável, e permite a comunicação entre dois sockets (que é o requisito deste trabalho).
+                <br />Na implementação desse trabalho é feita com o uso de dicionários em Python, pois o mesmo utiliza
+                <em>hash</em> em sua construção de busca, através das <em>keys</em>.
+            </p>
+            <p>Código fonte:
+                <a href="redes2/cliente.py.txt">Cliente</a>
+                <a href="redes2/servidor.py.txt">Servidor cache</a>
+                <a href="redes2/patagonia.py.txt">Servidor Patagonia</a>
+                <a href="redes2/saara.py.txt">Servidor Saara</a>
+                <a href="redes2/antartida.py.txt">Servidor Antartida</a>
+            </p>
+            <h3 id="2548ca0c-5b17-41e4-b0a1-595d8a86f8bc" class="">Servidores de temperatura</h3>
+            <p id="b0cba6ae-ec58-45ec-9fda-e419fd286c13" class="">Nesta comunicação há 3 <strong>servidores de
+                    temperatura</strong>: Antártida, Patagônia e Saara. Cada servidor de temperatura envia o valor
+                atual
+                da temperatura para quem está solicitando, e logo após gera-se um novo valor para a temperatura
+                local.
+            </p>
+            <p id="ba7b72cd-a4f4-4a97-9610-e94232d0db7e" class="">As tarefas dos servidores de temperatura são:
+                aguardar
+                uma solicitação, aceitar a conexão com quem está fazendo a requisição, responder com a temperatura
+                do
+                local e gerar uma nova temperatura.</p>
+            <h3 id="c936bf6a-6e0b-4923-85f7-b9ddc874b0a9" class="">Funcionamento do servidor</h3>
+            <p id="737de87a-d81f-40c8-bfa5-4bc08bbc667d" class="">O servidor deve ser iniciado com o comando:
+                <strong>python3 Servidor.py</strong> O servidor deve ser iniciado em um terminal separado. O
+                endereço IP
+                do servidor é o &#x27;<em>localhost</em>&#x27; e a PORTA é a porta 5000.
+            </p>
+            <h3 id="c8449a76-f6fa-46aa-ae39-4b1376ef840d" class="">Configurações dos servidores de temperatura</h3>
+            <table id="bc3d5fa8-e6f6-4a4e-a2d3-e537c458b682" class="simple-table">
+                <tbody>
+                    <tr id="9bc13181-0b52-4716-8780-6620ae664981">
+                        <td id="MBXE" class="" style="width:262px">Os endereços IP dos servidores são: </td>
+                        <td id="`uot" class="">As portas dos servidores utilizadas para teste foram: </td>
+                    </tr>
+                    <tr id="16588f9e-69e3-4bef-b4b7-3584755cb1f9">
+                        <td id="MBXE" class="" style="width:262px">HOST_saara = &#x27;127.0.0.1&#x27; </td>
+                        <td id="`uot" class="">PORT_saara = 5001 </td>
+                    </tr>
+                    <tr id="31a2c31a-6880-45b3-ba4c-fc0af4afdaac">
+                        <td id="MBXE" class="" style="width:262px">HOST_antartida = &#x27;127.0.0.1&#x27; </td>
+                        <td id="`uot" class="">PORT_antartida = 5002 </td>
+                    </tr>
+                    <tr id="e8007d03-06b5-4d32-ba0e-c499b95aa689">
+                        <td id="MBXE" class="" style="width:262px">HOST_patagonia = &#x27;127.0.0.1&#x27; </td>
+                        <td id="`uot" class="">PORT_patagonia = 5003</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="c81739c2-ce63-43bd-856f-d61004292f9f" class="">Funcionamento principal do servidor</h3>
+            <p id="e1ea54be-9c18-4d5a-b954-8813132ec123" class="">O servidor permanece aguardando a requisição do
+                cliente, e ao receber a requisição, ele aceita a conexão. Após aceitar a conexão e receber a
+                mensagem, o
+                servidor faz uma verificação para saber se o tipo da mensagem está certo, caso esteja, ele atualiza
+                a
+                tabela cache, monta a mensagem a ser enviada e faz seu envio. Caso o tipo da mensagem seja errada, o
+                servidor envia a seguinte mensagem &#x27;tente outro comando&#x27;.</p>
+            <h3 id="67b7f885-d6e0-4811-a600-4adbedd2d32a" class="">Inicialização da tabela cache</h3>
+            <p id="4b55393f-7780-4670-98e6-8dde49010ab4" class="">Esta função é simples e tem o intuito de
+                inicializar a
+                cache com uma temperatura = 0 e um tempo de vida de 30 segundos, para que na primeira requisição
+                seja
+                necessário buscar novos valores. </p>
+            <h3 id="dab33165-bd1f-41ea-88b6-d267bee3cb97" class="">Atualização da tabela cache</h3>
+            <p id="76aa2bbb-d04c-4d02-9a46-20f0a517b004" class="">Há uma verificação da mensagem, se a mensagem
+                recebida
+                possui o tipo <em>string </em>“tempo” , é chamada a função para atualização da cache.</p>
+            <p id="52bca26a-96d1-41bb-b923-f24f367fb98a" class="">Dentro desta função, verifica se o tempo de atual
+                menos o tempo o da tabela é maior que 30, caso seja, avisa que a tabela está desatualizada e tenta
+                buscar um tempo novo com o servidor. Se o servidor estiver conectado, atualiza a nova temperatura e
+                tempo na tabela. Se houver um problema na conexão com o servidor, avisa que o mesmo pode estar
+                desconectado, e mostra para o usuário uma mensagem informando.</p>
+            <h2 id="bd4303c0-a737-4594-ade5-8ea37d4ddac1" class="">Montagem da mensagem</h2>
+            <p id="2f3aef45-4f0e-4798-8db8-a9997979eacd" class="">
+            </p>
+            <p id="ce01f0cd-2d38-4268-80ae-090671a14e59" class="">Nesta função é feito uma manipulação dos dados em
+                <em>string </em>para que as mensagens/logs para o usuário sejam mais claras e de simples
+                compreensão.
+            </p>
+            <h3>Para efetuar a conexão com o servidor é necessário o comando:</h3>
+            <figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+                id="11c2fcbb-3570-49b8-8dd7-eb20d275ed60">
 
-        &nbsp;&nbsp;&nbsp;&nbsp;Código fonte: <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<a href="cliente.py.txt">Cliente</a>
-        <a href="servidor.py.txt">Servidor cache</a>
-        <a href="patagonia.py.txt">Servidor Patagonia</a>
-        <a href="saara.py.txt">Servidor Saara</a>
-        <a href="antartida.py.txt">Servidor Antartida</a>
+                <div style="width:100%"><strong>python3 patagonia.py &amp; python3 saara.py &amp; python3
+                        antartida.py</strong> </div>
+            </figure>
+            <p id="18cebd93-1e42-4413-ac1c-6a8cabe64232" class="">Dessa maneira os 3 servidores de temperatura serão
+                executados simultaneamente. </p>
+            <p id="8295ec72-2ec6-4ef1-a53d-5f1d71154ca6" class="">Após isso execute em um novo terminal:<strong>
+                </strong></p>
+            <figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+                id="8243ad20-2b6c-4827-9130-0399457942b0">
 
-        <!-- TODO: DESCOMENTAR -->
-        <!-- 
-        &nbsp;&nbsp;&nbsp;&nbsp;<a href="redes2/cliente.py.txt">Cliente</a>
-        <a href="redes2/servidor.py.txt">Servidor cache</a>
-        <a href="redes2/patagonia.py.txt">Servidor Patagonia</a>
-        <a href="redes2/saara.py.txt">Servidor Saara</a>
-        <a href="redes2/antartida.py.txt">Servidor Antartida</a> -->
+                <div style="width:100%"><strong>python3 servidor.py</strong> </div>
+            </figure>
+            <p id="637b7144-db88-4e0d-aed2-5a5d50ef4461" class="">E em outro terminal execute:<strong> </strong></p>
+            <figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex"
+                id="f1c985dd-5d8a-4f51-bb4b-98255ced5afe">
 
-    </p>
-    <h3>Servidores de temperatura</h3>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;Nesta comunicação há 3 <b>servidores de temperatura</b>: Antartida, Patagonia e Saara.
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Cada servidor de temperatura envia o valor atual da temperatura para quem está
-        solicitando, e logo após
-        gera-se
-        um novo valor para a temperatura local.
-        <p />
-    <p> &nbsp;&nbsp;&nbsp;&nbsp;As tarefas dos servidores de temperatura são: aguardar uma solicitação, aceitar a
-        conexão com quem está
-        fazendo
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;a requisição, responder com a temperatura do local e gerar uma nova temperatura.
-    </p>
+                <div style="width:100%"><strong>python3 cliente.py</strong></div>
+            </figure>
+            <h3 id="c67616c5-71cf-4723-a550-8e1abd818a12" class="">Funcionamento esperado do cliente:</h3>
+            <pre id="24fed992-7a73-4eb9-b29e-337064e19c75" class="code"><code>1-digite &quot;sair&quot; para encerrar 
+2-digite &quot;tempo&quot; para receber temperaturas</code></pre>
+            <h3 id="3f97a5c0-0808-4e4f-a504-1ec904cab788" class="">Diagrama do fluxo de requisição</h3>
+            <img src="redes2/fluxo.jpg" alt="Fluxo requisição">
+            <h2 id="f4a35991-e8ae-4a36-a427-c189d08a4172" class="">Logs de execução </h2>
 
-    <h3>Funcionamento do servidor</h3>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;O servidor deve ser iniciado com o comando: <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<b>python3 Servidor.py</b>
-        <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;O servidor deve ser iniciado em um terminal separado.<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;O endereço IP do servidor é o 'localhost' e a PORTA é a porta 5000.
-    </p>
-    <h3>Configurações dos servidores de temperatura</h3>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;Os endereços IP dos servidores são:<br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;HOST_saara = '127.0.0.1' <br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;HOST_antartida = '127.0.0.1'<br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;HOST_patagonia = '127.0.0.1'<br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;As portas dos servidores são:<br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;PORT_saara = 5001 <br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;PORT_antartida = 5002 <br /> <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;PORT_patagonia = 5003 <br /><br />
-    </p>
-    <h3>
-        Funcionamento principal do servidor
-    </h3>
+            <h3> Com a execução dos servidores e do cliente da forma como sugerida acima, temos os seguintes resultados:
+            </h3>
+            <a href="redes2/logCliente.txt">logCliente.txt</a> <br />
+            <p>
+                Neste arquivo, os 3 servidores de temperatura mostram seus logs juntos.
+            </p>
+            <a href="redes2/logTemperatura.txt">logTemperatura.txt</a> <br /><br />
+            <a href="redes2/logServidor.txt">logServidor.txt</a><br /><br />
+            <a href="redes2/erroLog.txt">erroLog.txt</a><br /><br />
 
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;O servidor permanece aguardando a requisição do cliente, e ao receber a requisição, ele
-        aceita a conexão. <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Após aceitar a conexão e receber a mensagem, o servidor faz uma verificação para saber
-        se o tipo da mensgem está
-        certo, <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;caso esteja, ele atualiza a tabela cache, monta a mensagem a ser enviada e faz seu
-        envio. <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Caso o tipo da mensagem seja errada, o servidor envia a seguinte mensagem 'tente outro
-        comando'. <br />
-
-    </p>
-
-    <h3>
-        Inicialização da tabela cache
-    </h3>
-
-    <h3>
-        Atualização da tabela cache
-    </h3>
-
-    <h3>
-        Montagem da mensagem
-    </h3>
-
-    <h3>
-        Para efetuar a conexão com o servidor é necessário o comando:
-    </h3>
-    <p>
-        <b>
-            &nbsp;&nbsp;&nbsp;&nbsp;python3 patagonia.py & python3 saara.py & python3 antartida.py
-        </b> <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Dessa maneira os 3 servidores de temperatura serão executados
-        simultaneamente.<br /><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Após isso execute em um novo terminal:<br /><br />
-        <b>
-            &nbsp;&nbsp;&nbsp;&nbsp;python3 servidor.py
-        </b><br /><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;E em outro terminal execute:<br /><br />
-        <b>
-            &nbsp;&nbsp;&nbsp;&nbsp;python3 cliente.py
-        </b>
-    </p>
-
-    <h3>
-        &nbsp;&nbsp;&nbsp;&nbsp;Funcionamento esperado do cliente:<br />
-
-    </h3>
-
-    <!-- TODO: DESCOMENTAR -->
-    <!-- <img src="redes2/fluxo.jpg" alt="Fluxo requisição"> -->
-    <img src="fluxo.jpg" alt="Fluxo requisição">
-
-    <p>
-
-    </p>
-    <h3>Diagrama do fluxo de requisição</h3>
-    <!-- TODO: DESCOMENTAR -->
-    <!-- <img src="redes2/fluxo.jpg" alt="Fluxo requisição"> -->
-    <img src="fluxo.jpg" alt="Fluxo requisição">
-
-
+        </div>
+    </article>
 </body>
 
 </html>
